@@ -7,7 +7,7 @@ public class LC70ClimbStairs {
 
     /**
      * 带有缓存的递归
-     *
+     * 效率很差，leetcode提交会超时
      * @param n
      * @return
      */
@@ -38,15 +38,12 @@ public class LC70ClimbStairs {
     }
 
     /**
+     * 动态规划
      * @param n
      * @return
      */
     public int climbStairs2(int n) {
-        if (n == 1) {
-            return 1;
-        } else if (n == 2) {
-            return 2;
-        }else {
+        if (n > 2) {
             int f1 = 1;
             int f2 = 2;
             int f3 = 3;
@@ -56,6 +53,8 @@ public class LC70ClimbStairs {
                 f2 = f3;
             }
             return f3;
+        } else {
+            return n;
         }
     }
 }
